@@ -153,6 +153,7 @@ import mlbgame.game
 import mlbgame.info
 import mlbgame.stats
 import mlbgame.version
+import mlbgame.player
 
 import calendar
 from datetime import date
@@ -282,3 +283,11 @@ def teams():
     info = mlbgame.info.team_info()
     output = [mlbgame.info.Info(x) for x in info]
     return output
+
+def players():
+    info = mlbgame.player.get_player_data()
+    output = [mlbgame.player.Player(x) for x in info]
+    return output
+
+TEAMS = dict(zip([t.club_full_name for t in teams()], teams()))
+PLAYERS = dict(zip([p.mlb_name for p in players()], players()))

@@ -104,3 +104,10 @@ def get_properties():
     # in case mlb.com depricates this functionality
     except HTTPError:
         raise ValueError("Could not find the properties file. mlb.com does not provide the file that mlbgame needs to perform this operation.")
+
+def get_current_rosters():
+    """Retrivies today's MLB roster from http://crunchtimebaseball.com/"""
+    try:
+        return urlopen("http://crunchtimebaseball.com/master.csv")
+    except HTTPError:
+        raise ValueError("Could not find the roster data.  Please check http://crunchtimebaseball.com.")
