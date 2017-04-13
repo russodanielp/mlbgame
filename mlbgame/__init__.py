@@ -285,6 +285,7 @@ def teams():
     return output
 
 def players():
+    """Return list of Player objects for all current players"""
     info = mlbgame.player.get_player_data()
     output = [mlbgame.player.Player(x) for x in info]
     return output

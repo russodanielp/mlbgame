@@ -8,7 +8,10 @@ import lxml.etree as etree
 from collections import Counter
 from functools import reduce
 
+
+
 def get_player_data():
+    """Returns a list current players and their attributes in a dictionary"""
     data = mlbgame.data.get_current_rosters()
     headers = data.readline().decode('ISO-8859-1').split(',')
     output = []
@@ -27,6 +30,12 @@ def single_game_batting_data(response):
     for ab in abs:
         results[ab.attrib['event']] =+ 1
     return results
+
+def most_recent_game(team):
+    """Returns the most recent game_id for a team"""
+    import datetime
+    return str(datetime.date.today()).split('-')
+
 
 class PlayerBatting(mlbgame.object.Object):
 
@@ -54,3 +63,4 @@ class Player(mlbgame.object.Object):
         for d in data:
             results += d
         return results
+
