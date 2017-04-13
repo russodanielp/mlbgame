@@ -59,3 +59,11 @@ target/
 
 # testing file
 test.py
+
+# cached data
+mlbgame/gameday-data/*
+
+.idea/
+
+
+

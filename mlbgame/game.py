@@ -115,7 +115,11 @@ def scoreboard(year, month, day, home=None, away=None):
                     p_pitcher_away = ""
                     p_pitcher_away_wins = 0
                     p_pitcher_away_losses = 0
-                output = {'game_id':game_id, 'game_type':game_type, 'game_league':game_league, 'game_status':game_status, 'game_start_time':game_start_time, 'home_team':home_team, 'home_team_runs': home_team_runs, 'home_team_hits': home_team_hits, 'home_team_errors': home_team_errors, 'away_team':away_team, 'away_team_runs': away_team_runs, 'away_team_hits': away_team_hits, 'away_team_errors': away_team_errors, 'p_pitcher_home':p_pitcher_home, 'p_pitcher_home_wins': p_pitcher_home_wins, 'p_pitcher_home_losses': p_pitcher_home_losses, 'p_pitcher_away':p_pitcher_away, 'p_pitcher_away_wins': p_pitcher_away_wins, 'p_pitcher_away_losses': p_pitcher_away_losses,}
+                output = {'game_id':game_id, 'game_type':game_type, 'game_league':game_league, 'game_status':game_status,
+                          'game_start_time':game_start_time, 'home_team':home_team, 'home_team_runs': home_team_runs, 'home_team_hits': home_team_hits,
+                          'home_team_errors': home_team_errors, 'away_team':away_team, 'away_team_runs': away_team_runs, 'away_team_hits': away_team_hits,
+                          'away_team_errors': away_team_errors, 'p_pitcher_home':p_pitcher_home, 'p_pitcher_home_wins': p_pitcher_home_wins,
+                          'p_pitcher_home_losses': p_pitcher_home_losses, 'p_pitcher_away':p_pitcher_away, 'p_pitcher_away_wins': p_pitcher_away_wins, 'p_pitcher_away_losses': p_pitcher_away_losses,}
                 # put this dictionary into the larger dictionary
                 games[game_id]=output
     return games

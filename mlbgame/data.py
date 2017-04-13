@@ -79,6 +79,18 @@ def get_game_events(game_id):
             raise ValueError("Could not find a game with that id.")
     return data
 
+def get_player_from_game(game_id, player_id):
+    year, month, day, rest = game_id.split('_', 3)
+    try:
+        data = urlopen("http://gd2.mlb.com/components/game/mlb/year_%s/month_%s/day_%s/gid_%s/batters/%s.xml" % (year, month, day, game_id, player_id))
+    except HTTPError as err:
+        if err.code == 404:
+            return None
+        else:
+            raise ValueError("Count not find a game with that id.")
+    return data
+
+
 def get_overview(game_id):
     """Return the linescore file of a game with matching id."""
     # get relevant information from game id

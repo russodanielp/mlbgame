@@ -291,3 +291,6 @@ def players():
 
 TEAMS = dict(zip([t.club_full_name for t in teams()], teams()))
 PLAYERS = dict(zip([p.mlb_name for p in players()], players()))
+
+NATIONAL_LEAGUE = dict([(team, team_obj) for team, team_obj in TEAMS.items() if team_obj.league == 'National'])
+AMERICAN_LEAGUE = dict([(team, team_obj) for team, team_obj in TEAMS.items() if team_obj.league == 'American'])
